@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- People and their roles in Inception -->
+        <h1>People and their roles</h1>
+    </header>
+
+    <ul>
+        {% if results %}
+            {% for result in results %}
+            <li>
+                Name: {{ result['name'] }}, Role: {{ result['role'] }}
+                <!-- Link to the detail page 
+                <a href="/inceptiondet/{{ result['name'] }}">View Details</a> -->
+            </li>
+            {% endfor %}
+        {% else %}
+            <li>No results found.</li>
+        {% endif %}
+    </ul>
+
+    <a href="/inceptionSearch">Back to Search</a>
+
+
+</body>
+</html>

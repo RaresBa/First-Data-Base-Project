@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Input</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Input</h1>
+    </header>
+
+    <form id="MovieForm" action="/movieInput" method="POST">
+        <label>Title:</label>
+        <input type="text" name="title" id="title" required />
+        <label>Studio:</label>
+        <input type="text" name="studio" id="studio" required />
+        <label>Release Year:</label>
+        <input type="number" name="ryear" id="ryear" required />
+        <label>Runtime (Minutes):</label>
+        <input type="number" name="runtime" id="runtime" required />
+        <label>Rating:</label>
+        <input type="text" name="rating" id="rating" required />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear" />
+    </form>
+
+    <div id="feedback"></div>
+
+    <script>
+        document.getElementById('MovieForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission for validation
+
+            var title = document.getElementById("title").value;
+            var studio = document.getElementById("studio").value;
+            var ryear = document.getElementById("ryear").value;
+            var runtime = document.getElementById("runtime").value;
+            var rating = document.getElementById("rating").value;
+            var feedback = "";
+            var valid = true;
+
+            if (!title) {
+                feedback += "Title is required.<br>";
+                valid = false;
+            }
+            if (!studio) {
+                feedback += "Studio is required.<br>";
+                valid = false;
+            }
+            if (!ryear || isNaN(ryear) || ryear < 1888 || ryear > new Date().getFullYear()) {
+                feedback += "Please enter a valid release year.<br>";
+                valid = false;
+            }
+            if (!runtime || runtime <= 0) {
+                feedback += "Runtime must be a positive number.<br>";
+                valid = false;
+            }
+            if (!rating) {
+                feedback += "Rating is required.<br>";
+                valid = false;
+            }
+
+            if (valid) {
+                // Submit the form to the server
+                document.getElementById('MovieForm').submit();
+            } else {
+                document.getElementById("feedback").innerHTML = "<span class='error'>" + feedback + "</span>";
+            }
+        });
+    </script>
+</body>
+</html>

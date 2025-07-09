@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director Input</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Login</h1>
+    </header>
+
+    <form id="LoginForm" action="/maintenanceLogin" method="POST">
+        <label>Username:</label>
+        <input type="text" name="username" id="username" required />
+        <label>Password:</label>
+        <input type="text" name="password" id="password" required />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear" />
+    </form>
+
+    <div id="feedback"></div>
+
+    <script>
+        document.getElementById('LoginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("username").value;
+            var birthdate = document.getElementById("password").value;
+            var feedback = "";
+            var valid = true;
+
+            if (!username) {
+                feedback += "Username is required.<br>";
+                valid = false;
+            }
+            if (!password) {
+                feedback += "Password is required.<br>";
+                valid = false;
+            }
+
+            if (valid) {
+                // If validation passes, submit the form to the server
+                document.getElementById('LoginForm').submit();
+            } else {
+                document.getElementById("feedback").innerHTML = "<span class='error'>" + feedback + "</span>";
+            }
+        });
+    </script>
+</body>
+</html>

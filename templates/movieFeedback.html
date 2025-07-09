@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Input Feedback</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Feedback</h1>
+    </header>
+
+
+    <div id="feedback"></div>
+
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            var success = document.getElementById('success').textContent = params.get('success');
+            if(success = "true"){
+                feedback += "Successfully submitted form.";
+            }else{
+                feedback += "Form could not be submitted.";
+            }
+        }
+        window.onload = getQueryParams;
+    </script>
+
+    
+</body>
+</html>

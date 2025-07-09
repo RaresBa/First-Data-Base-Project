@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Meta tag for auto-redirect -->
+    <meta http-equiv="refresh" content="3;url=index.html" />  <!-- Redirects to index.html in 3 seconds -->
+</head>
+<body>
+    <header>
+        <h1>Feedback</h1>
+    </header>
+
+    <p>Your data has been added. You will be redirected shortly...</p>
+
+    <footer>
+        <a href="index.html">Go to Home</a> |
+        <a href="maintenance.html">Go to Maintenance</a>
+    </footer>
+    
+    <script>
+        // Optional: Change the URL in the meta tag based on user interaction
+        setTimeout(function() {
+            window.location.href = "index.html";  // Default redirect to index.html after 3 seconds
+        }, 3000);
+    </script>
+</body>
+</html>

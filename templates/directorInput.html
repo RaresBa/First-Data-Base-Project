@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Director Input</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Director Input</h1>
+    </header>
+
+    <form id="DirectorForm" action="/directorInput" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" id="name" required />
+        <label>Birth Date:</label>
+        <input type="date" name="birthdate" id="birthdate" required />
+        <label>Directing Debut Year:</label>
+        <input type="number" name="ddyear" id="ddyear" required />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear" />
+    </form>
+
+    <div id="feedback"></div>
+
+    <script>
+        document.getElementById('DirectorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var birthdate = document.getElementById("birthdate").value;
+            var ddyear = document.getElementById("ddyear").value;
+            var feedback = "";
+            var valid = true;
+
+            if (!name) {
+                feedback += "Name is required.<br>";
+                valid = false;
+            }
+            if (!birthdate) {
+                feedback += "Birth date is required.<br>";
+                valid = false;
+            }
+            if (!ddyear || isNaN(ddyear) || ddyear > new Date().getFullYear()) {
+                feedback += "Please enter a valid debut year.<br>";
+                valid = false;
+            }
+
+            if (valid) {
+                // If validation passes, submit the form to the server
+                document.getElementById('DirectorForm').submit();
+            } else {
+                document.getElementById("feedback").innerHTML = "<span class='error'>" + feedback + "</span>";
+            }
+        });
+    </script>
+</body>
+</html>

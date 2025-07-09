@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Results</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Debut Year</th>
+                <th>Awards</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in people %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td>{{ p.role }}</td>
+                <td>{{ p.experience }}</td>
+                <td>{{ p.awards }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>

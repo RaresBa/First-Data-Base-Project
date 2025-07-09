@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor Input</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Actor Input</h1>
+    </header>
+
+    <form id="ActorForm" action="/actorInput" method="POST">
+        <label>Name:</label>
+        <input type="text" name="name" id="name" required />
+        <label>Birth Date:</label>
+        <input type="date" name="birthdate" id="birthdate" required />
+        <label>Acting Debut Year:</label>
+        <input type="number" name="adyear" id="adyear" required />
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Clear" />
+    </form>
+
+    <div id="feedback"></div>
+
+    <script>
+        document.getElementById('ActorForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission until validation
+
+            var name = document.getElementById("name").value;
+            var birthdate = document.getElementById("birthdate").value;
+            var adyear = document.getElementById("adyear").value;
+            var feedback = "";
+            var valid = true;
+
+            if (!name) {
+                feedback += "Name is required.<br>";
+                valid = false;
+            }
+            if (!birthdate) {
+                feedback += "Birth date is required.<br>";
+                valid = false;
+            }
+            if (!adyear || isNaN(adyear) || adyear > new Date().getFullYear()) {
+                feedback += "Please enter a valid debut year.<br>";
+                valid = false;
+            }
+
+            if (valid) {
+                // If validation passes, submit the form to the server
+                document.getElementById('ActorForm').submit();
+            } else {
+                document.getElementById("feedback").innerHTML = "<span class='error'>" + feedback + "</span>";
+            }
+        });
+    </script>
+</body>
+</html>

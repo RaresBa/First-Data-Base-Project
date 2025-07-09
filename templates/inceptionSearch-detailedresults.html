@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="detail-container">
+        <h1>Actor Details</h1>
+        <div id="actorDetail"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const role = urlParams.get('role');
+
+
+    </script>
+
+<?php $mysql = mysqli_connect( "brares@5.75.182.107", "brares", "YJXcVV", "JRP_Entertainment_DataBase" );
+$result = mysql_db_query( "Actor", SELECT * FROM People P WHERE P.name = urlParams.get('name') )
+or die( “query failed - “ . mysql_errno() . “: “ . mysql_error(); )
+?>
+<table>
+<tr> <th>Name</th> <th>DOB</th> <th>DebutYear</th> </tr>
+<?php while ( $array = mysql_fetch_array($result) ); ?>
+<td><?php echo $array[ "name" ]; ?></td>
+<td><?php echo $array[ "dob" ]; ?></td>
+<td><?php echo $array[ "DebutYear" ]; ?></td>
+</tr>
+<?php endwhile; ?>
+</table>
+<?php mysql_close($mysql); ?>
+</body>
+</html>

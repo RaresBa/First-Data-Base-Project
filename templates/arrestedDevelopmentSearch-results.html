@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrested Development Features</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <h1>Arrested Development Features List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in arrested %}
+            <tr>
+                <td>{{ a.name }}</td>
+                <td>{{ a.role }}</td>
+                <!-- Use a class for the buttons instead of an id -->
+                <td><button class="details-button" data-name="{{ a.name }}">Details</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <script>
+        // Add event listener to each button
+        document.addEventListener('DOMContentLoaded', function() {
+            var buttons = document.querySelectorAll('.details-button');
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    // Get the name from the data-name attribute
+                    var name = this.getAttribute('data-name');
+                    
+                    // Redirect to the detailed result page with the name in the query string
+                    window.location.href = `arrestedDevelopmentSearch-detailedresult?name=${name}`;
+                });
+            });
+        });
+    </script>
+    
+
+</body>
+
+
+
+
+
+
+</html>

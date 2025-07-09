@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrested Development Names and Roles</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+<body>
+    <header>
+        <!-- People and their roles in Arrested Development -->
+        <h1>People and their roles in Arrested Development</h1>
+    </header>
+
+    <form id="searchForm">
+        <label for="Name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="Role">Role:</label><br>
+        <input type="text" id="role" name="role"><br><br>
+
+        <button type="submit">Search</button>
+    </form>
+
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from reloading the page
+
+            // Capture form inputs
+            const name = document.getElementById('name').value;
+            const role = document.getElementById('role').value;
+
+            // Redirect to the results page with the search query as URL parameters
+            window.location.href = `arrestedDevelopmentSearch-results?name=${name}&role=${role}`;
+        });
+    </script>
+
+
+</body>
+</html>
