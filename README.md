@@ -2,7 +2,7 @@
 
 ## About This Project
 
-This is my first database project - a web-based entertainment management system built with Flask and MySQL. As a beginner learning database development, I created this application to practice CRUD operations, database design, and web development fundamentals.
+This is my first database project for my Database & Web Services class - a web-based entertainment management system built with Flask and MySQL. As a beginner learning database development, I created this application to practice CRUD operations, database design, and web development fundamentals.
 
 ## What This Project Does
 
@@ -162,6 +162,13 @@ Some areas I'd like to enhance as I learn more:
 - Data visualization
 - Mobile responsiveness
 
+## Contributors
+
+This project was developed as a collaborative effort by:
+
+- **Baiasu Stefan Rares** (sbaiasu@constructor.university)
+- **Jacob Mekdem Asfaw** (jasfaw@constructor.university) 
+- **Patrick Horiszny** (phoriszny@vassar.edu)
 ---
 
 *This project represents my journey into database development and web application creation. It's just a foundation from which I learned.* 
