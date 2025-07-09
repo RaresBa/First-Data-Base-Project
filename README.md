@@ -73,12 +73,73 @@ The system uses several interconnected tables:
 - MySQL Server
 - Required Python packages (see requirements.txt)
 
-### Installation
-1. Clone the repository
-2. Set up a MySQL database named `brares_db`
-3. Install dependencies: `pip install -r requirements.txt`
-4. Configure database connection in `app.py`
-5. Run the application: `python app.py`
+### Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd "DataBase Project"
+   ```
+
+2. **Set up virtual environment (recommended)**
+   ```bash
+   python -m venv venv
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up MySQL database**
+   - Install MySQL Server if not already installed
+   - Create a new database named `brares_db`
+   - Create a MySQL user or use existing credentials
+
+5. **Configure database connection**
+   - Open `app.py` and update the database connection string:
+   ```python
+   app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://username:password@localhost/brares_db?charset=utf8mb4"
+   ```
+   - Replace `username` and `password` with your MySQL credentials
+   - Also update the connection in `get_db_connection()` function
+
+6. **Initialize the database**
+   - Run the application once to create tables:
+   ```bash
+   python app.py
+   ```
+
+### Running the Server
+
+1. **Activate virtual environment** (if using one)
+   ```bash
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
+   ```
+
+2. **Start the Flask application**
+   ```bash
+   python app.py
+   ```
+
+3. **Access the application**
+   - Open your web browser
+   - Navigate to: `http://localhost:5000` or `http://127.0.0.1:5000`
+   - The application should now be running!
+
+### Troubleshooting
+
+- **Database connection errors**: Double-check your MySQL credentials and ensure the database exists
+- **Missing dependencies**: Run `pip install -r requirements.txt` again
+- **Port already in use**: Change the port in `app.py` or stop other services using port 5000
+- **Virtual environment issues**: Make sure you're in the correct directory and virtual environment is activated
 
 ## Learning Outcomes
 
@@ -103,4 +164,4 @@ Some areas I'd like to enhance as I learn more:
 
 ---
 
-*This project represents my journey into database development and web application creation. It's justt a foundation from which I learned.* 
+*This project represents my journey into database development and web application creation. It's just a foundation from which I learned.* 
