@@ -5,7 +5,7 @@ from models import db, Director, Actor, Producer, VisualEntertainment
 
 app = Flask(__name__, template_folder='templates')  
 app.secret_key = 'your_secret_key'  
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://brares:12345@localhost/brares_db?charset=utf8mb4"
+app.config["SQLALCHEMY_DATABASE_URI"] = "---"
 db.init_app(app)
 
 
